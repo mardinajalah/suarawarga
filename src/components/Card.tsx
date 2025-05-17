@@ -1,12 +1,16 @@
 import React from 'react';
 
-const Card = () => {
+interface PropsType {
+  imgSrc: string;
+}
+
+const Card = ({imgSrc}: PropsType) => {
   return (
     <>
-      <div className='flex w-[60%] justify-between gap-3'>
-        <div className='w-6xlrounded-lg overflow-hidden shadow-xl rounded-lg'>
+      <div className='flex w-[97%] justify-between gap-3'>
+        <div className='w-6xl overflow-hidden shadow-xl rounded-lg'>
           <img
-            src='https://c.files.bbci.co.uk/0231/production/_109016500_antarafoto-aksigejayanmemanggil-230919-afa-013.jpg'
+            src={imgSrc}
             alt='gambar'
             className='w-full h-full object-cover'
           />

@@ -13,11 +13,12 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-      <div className="w-1/5 text-sm">
+      <div className="w-1/4 text-sm flex justify-between font-semibold items-center gap-2">
         <input type="text"
-          className="bg-white w-full placeholder:text-gray-800 text-gray-800 text-lg font-semibold rounded-lg py-2 px-4 outline-none"
+          className="bg-white w-full placeholder:text-gray-800 text-gray-800 rounded-lg py-2 px-4 outline-none"
           placeholder="Cari Berita......"
         />
+        <button className="bg-black px-5 py-2 rounded-lg cursor-pointer">Cari</button>
       </div>
     </div>
   );
