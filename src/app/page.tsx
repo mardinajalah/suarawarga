@@ -6,11 +6,13 @@ import { Khand, Karantina } from 'next/font/google';
 const khand = Khand({
   weight: '700',
   style: 'normal',
+  subsets: ['latin'],
 });
 
 const karantina = Karantina({
   weight: '700',
   style: 'normal',
+  subsets: ['latin'],
 });
 
 const Home = () => {
