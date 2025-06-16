@@ -1,7 +1,9 @@
-import Card from "@/components/Card";
-import Navbar from "@/components/Navbar";
-import PointNews from "@/components/PointNews";
+import Card from "@/components/page/Card";
+import Navbar from "@/components/page/Navbar";
+import PointNews from "@/components/page/PointNews";
 import { Khand, Karantina } from "next/font/google";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Footer from "@/components/page/Footer";
 
 const khand = Khand({
   weight: "700",
@@ -27,7 +29,7 @@ const Home = () => {
       <Navbar />
       <div className="lg:flex justify-between px-5 md:px-10">
         {/* content left */}
-        <div className="pb-5 lg:w-[50%]">
+        <div className="pb-5 lg:w-[55%]">
           <h1 className="text-[#0AA01B] mt-2">Terkini</h1>
           <div className="mt-2">
             <div className="relative bg-slate-200 overflow-hidden rounded-xl shadow-2xl">
@@ -35,7 +37,7 @@ const Home = () => {
                 <img
                   src="https://c.files.bbci.co.uk/0231/production/_109016500_antarafoto-aksigejayanmemanggil-230919-afa-013.jpg"
                   alt="gambar"
-                  className="w-full object-cover"
+                  className="w-full h-full object-cover"
                 />
               </picture>
               <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -53,15 +55,24 @@ const Home = () => {
             <Card imgSrc="https://cdn.antaranews.com/cache/1200x800/2024/02/16/antarafoto-aksi-depan-kpu-160224-hma-01.jpg" />
             <Card imgSrc="https://berita.batangkab.go.id/img/berita/20-230824150728berita11319_.jpeg" />
           </div>
+          <div className="flex justify-center mt-3 gap-2">
+            <button className="bg-black text-white rounded-md p-1 cursor-pointer">
+              <ChevronLeft size={20} />
+            </button>
+            <button className="bg-black text-white rounded-md p-1 cursor-pointer">
+              <ChevronRight size={20} />
+            </button>
+          </div>
         </div>
         {/* content right */}
-        <div className="w-[30%] border-2">
-          <h1 className="text-[#0AA01B] mt-2 mb-2">Populer</h1>
+        <div className="lg:w-[30%] w-full">
+          <h1 className="text-[#0AA01B] mt-2">Populer</h1>
           <PointNews />
           <PointNews />
           <PointNews />
         </div>
       </div>
+      <Footer />
     </>
   );
 };

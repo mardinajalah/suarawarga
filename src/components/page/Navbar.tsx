@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Menu } from 'lucide-react'; // atau pakai icon lain
+import { Equal, EqualNot } from 'lucide-react'; // atau pakai icon lain
 
 const lists: string[] = ['Berita', 'Jaga', 'Udik', 'Pandangan'];
 
@@ -16,7 +16,7 @@ const Navbar = () => {
         onClick={() => setMenuOpen(!menuOpen)}
         className='md:hidden'
       >
-        <Menu size={28} />
+        {menuOpen? <EqualNot size={28} /> : <Equal size={28} />}
       </button>
 
       {/* Menu hanya tampil di md ke atas */}
