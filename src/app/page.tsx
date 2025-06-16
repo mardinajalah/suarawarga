@@ -1,32 +1,11 @@
 import Card from "@/components/page/Card";
-import Navbar from "@/components/page/Navbar";
 import PointNews from "@/components/page/PointNews";
-import { Khand, Karantina } from "next/font/google";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import Footer from "@/components/page/Footer";
+import Link from "next/link";
 
-const khand = Khand({
-  weight: "700",
-  style: "normal",
-  subsets: ["latin"],
-});
-
-const karantina = Karantina({
-  weight: "700",
-  style: "normal",
-  subsets: ["latin"],
-});
 
 const Home = () => {
   return (
     <>
-      <div className="text-center font-bold capitalize text-gray-800 pt-5">
-        <h1 className={`${khand.className} text-6xl`}>suarawarga</h1>
-        <span className={`${karantina.className} text-2xl`}>
-          nurani warga tapak
-        </span>
-      </div>
-      <Navbar />
       <div className="lg:flex justify-between px-5 md:px-10">
         {/* content left */}
         <div className="pb-5 lg:w-[55%]">
@@ -56,12 +35,9 @@ const Home = () => {
             <Card imgSrc="https://berita.batangkab.go.id/img/berita/20-230824150728berita11319_.jpeg" />
           </div>
           <div className="flex justify-center mt-3 gap-2">
-            <button className="bg-black text-white rounded-md p-1 cursor-pointer">
-              <ChevronLeft size={20} />
-            </button>
-            <button className="bg-black text-white rounded-md p-1 cursor-pointer">
-              <ChevronRight size={20} />
-            </button>
+            <Link href="/berita" className="hover:text-[#0AA01B]">
+              Lihat semua berita
+            </Link>
           </div>
         </div>
         {/* content right */}
@@ -72,7 +48,6 @@ const Home = () => {
           <PointNews />
         </div>
       </div>
-      <Footer />
     </>
   );
 };
