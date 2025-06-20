@@ -2,9 +2,12 @@ import React from "react";
 
 interface PropsType {
   imgSrc: string;
+  title: string;
+  desc: string;
+  tanggal: string;
 }
 
-const Card = ({ imgSrc }: PropsType) => {
+const Card = ({ imgSrc, title, desc, tanggal }: PropsType) => {
   return (
     <>
       <div className="md:flex justify-between gap-2 overflow-hidden">
@@ -19,14 +22,12 @@ const Card = ({ imgSrc }: PropsType) => {
         </div>
         <div className="md:w-[50%]">
           <h1 className="text-lg font-bold mt-2 mb-1 md:mt-0">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo,
-            fugiat?
+            {title}
           </h1>
           <p className="mb-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-            odio dolor voluptates illo doloremque...
+            {desc}
           </p>
-          <span className="text-[#0AA01B]">02/08/2025</span>
+          <span className="text-[#0AA01B]">{tanggal}</span>
         </div>
       </div>
     </>

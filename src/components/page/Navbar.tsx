@@ -6,8 +6,9 @@ import Link from "next/link";
 import { Khand, Karantina } from "next/font/google";
 import { useRouter } from "next/navigation";
 
-interface PropsType {
-  lists: string[];
+interface dataNavbarType {
+  id: number
+  name: string;
 }
 
 const khand = Khand({
@@ -22,8 +23,8 @@ const karantina = Karantina({
   subsets: ["latin"],
 });
 
-const Navbar = ({ lists }: PropsType) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+const Navbar = ({ lists }: { lists: dataNavbarType[] }) => {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const router = useRouter();
 
   const handleNavigation = (path: string) => {
@@ -47,13 +48,13 @@ const Navbar = ({ lists }: PropsType) => {
 
         {/* Menu hanya tampil di md ke atas */}
         <ul className="hidden md:flex gap-6 text-xl">
-          {lists.map((list: string, i: number) => (
+          {lists.map((list: dataNavbarType) => (
             <Link
-              href={list == "Home"? "/" :`/${list.toLowerCase()}`}
-              key={i}
+              href={list.name == "Home" ? "/" : `/${list.name.toLowerCase()}`}
+              key={list.id}
               className="cursor-pointer"
             >
-              {list}
+              {list.name}
             </Link>
           ))}
         </ul>
@@ -72,13 +73,17 @@ const Navbar = ({ lists }: PropsType) => {
 
         {menuOpen && (
           <ul className="absolute top-16.5 left-0 w-full bg-[#0AA01B] text-white md:hidden flex flex-col gap-2 px-6 py-4">
-            {lists.map((list, i) => (
+            {lists.map((list: dataNavbarType) => (
               <p
-                onClick={() => handleNavigation(list == "Home"? "/" :`/${list.toLowerCase()}`)}
-                key={i}
+                onClick={() =>
+                  handleNavigation(
+                    list.name == "Home" ? "/" : `/${list.name.toLowerCase()}`
+                  )
+                }
+                key={list.id}
                 className="py-2 cursor-pointer"
               >
-                {list}
+                {list.name}
               </p>
             ))}
           </ul>

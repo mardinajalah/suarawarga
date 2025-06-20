@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/page/Navbar";
 import Footer from "@/components/page/Footer";
 import { usePathname } from "next/navigation";
+import { dataNavbar } from "@/data";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,13 +22,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const categorys: string[] = ["Home","Berita", "Jaga", "Udik", "Pandangan"];
   const pathname = usePathname();
 
   const show =
     pathname === "/" ||
-    categorys
-      .map((c) => `/${c.toLowerCase()}`)
+    dataNavbar
+      .map((c) => `/${c.name.toLowerCase()}`)
       .includes(pathname.toLowerCase());
 
   return (
@@ -39,7 +39,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div>
-          {show && <Navbar lists={categorys} />}
+          {show && <Navbar lists={dataNavbar} />}
           {children}
           {show && <Footer />}
         </div>
