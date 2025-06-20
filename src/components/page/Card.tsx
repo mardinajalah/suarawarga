@@ -25,7 +25,7 @@ const Card = ({ imgSrc, title, desc, tanggal }: PropsType) => {
             {title}
           </h1>
           <p className="mb-2">
-            {desc}
+            {desc.split(" ").slice(0, 15).join(" ") + "..."}
           </p>
           <span className="text-[#0AA01B]">{tanggal}</span>
         </div>
